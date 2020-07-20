@@ -1,39 +1,31 @@
-/*
-font-family: 'Saira', sans-serif;
-font-family: 'Saira Condensed', sans-serif;
-*/
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    --lightbgc: rgba(250, 255, 250, 1.0);
-    --darkbgc: rgba(5, 0, 5, 1.0);
+body {
+    --lightbgc: rgba(250, 255, 250, 1);
+    --darkbgc: rgba(5, 0, 5, 1);
     overflow-x: hidden;
     background-color: var(--lightbgc);
     color: var(--darkbgc);
-    max-width: 1600px
+    max-width: 1600px;
 }
-
-/* body { overflow-x: hidden;} */
 
 .clearfix::after {
-    content: "";
+    content: '';
     display: block;
-    clear: both
+    clear: both;
 }
 
-/* GŁÓWNE CECHY  */
+/* MAIN FEATURES  */
 h1 {
     font-size: 16px;
     text-transform: uppercase;
     text-align: center;
     font-family: 'Saira', sans-serif;
     font-weight: 700;
-
 }
 
 h2 {
@@ -57,14 +49,13 @@ p {
     line-height: 150%;
     padding-bottom: 10px;
     margin: 10px 6px 20px 6px;
-
 }
 
 /* BURGER  */
 .burger i {
     position: fixed;
     top: 2.5%;
-    right: 5%;
+    right: 6%;
     font-size: 24px;
     cursor: pointer;
     z-index: 2;
@@ -73,13 +64,10 @@ p {
 
 .burger i.changeColor1 {
     color: var(--lightbgc);
-}
-
-.burger i.rotate {
     transform: rotate(360deg);
 }
 
-@media (min-width:1024px) and (orientation:landscape) {
+@media (min-width: 1024px) and (orientation: landscape) {
     .burger i {
         top: 1%;
         right: 2.5%;
@@ -90,16 +78,16 @@ p {
 /* MENU */
 aside.menu {
     position: fixed;
-    /* display: flex;
-    flex-direction: column; */
     background-color: var(--darkbgc);
     opacity: 0.8;
-    top: -60vh;
-    left: 0;
-    right: 0;
+    top: 1.25%;
+    right: -100vw;
+    width: 95%;
     height: 60vh;
     z-index: 1;
-    transition: 0.3s linear;
+    transition: 0.5s ease-in-out;
+    border: 2px solid var(--lightbgc);
+    border-radius: 10px;
 }
 
 nav {
@@ -112,42 +100,46 @@ nav {
 a h1 {
     font-size: 18px;
     font-weight: 900;
-    color: var(--lightbgc)
+    color: var(--lightbgc);
 }
 
 aside.show {
-    top: 0;
+    right: 2.5%;
 }
 
 a {
     font-family: 'Saira', sans-serif;
-    text-decoration: none
+    text-decoration: none;
 }
 
-@media (min-width:360px) {
+@media (min-width: 360px) {
     a h1 {
         font-size: 20px;
     }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
     a h1 {
         font-size: 28px;
     }
 }
 
-@media (min-width:1280px) and (orientation:landscape) {
+@media (min-width: 1280px) and (orientation: landscape) {
     aside.menu {
-        width: 100vw;
+        width: 90vw;
         height: 8vh;
     }
 
     nav {
-        width: 95vw;
+        width: 90vw;
         height: 8vh;
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
+    }
+
+    aside.show {
+        right: 7.5%;
     }
 
     a {
@@ -155,27 +147,22 @@ a {
     }
 }
 
-/* GŁÓWNE CECHY */
-@media (min-width:360px) and (orientation: portrait) {
+/* MAIN FEATURES */
+@media (min-width: 360px) and (orientation: portrait) {
 
     h1,
     h2 {
         font-size: 20px;
         line-height: 24px;
-        margin: 2% auto
+        margin: 2% auto;
     }
-
-    /*
-    h1 {
-        margin-top: 5%
-    }*/
 
     p {
         margin: 10px 10px 20px 10px;
     }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
 
     h1,
     h2 {
@@ -184,37 +171,34 @@ a {
     }
 
     p {
-        font-size: 24px
+        font-size: 24px;
     }
 }
 
-@media (min-width:1024px) {
+@media (min-width: 1024px) {
 
     h1,
     h2 {
         font-size: 32px;
         line-height: 34px;
-
     }
 }
 
-@media (min-width:1280px) {
+@media (min-width: 1280px) {
 
     h1,
     h2 {
         font-size: 34px;
         line-height: 38px;
-
     }
 }
 
-@media (min-width:1400px) {
+@media (min-width: 1400px) {
 
     h1,
     h2 {
         font-size: 36px;
         line-height: 40px;
-
     }
 }
 
@@ -254,43 +238,42 @@ header p {
     }
 }
 
-@media (min-width:360px) and (orientation: portrait) {
+@media (min-width: 360px) and (orientation: portrait) {
     header p {
         font-size: 20px;
         line-height: 24px;
     }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
     header p {
         font-size: 28px;
         line-height: 32px;
     }
 }
 
-@media (min-width:1024px) {
+@media (min-width: 1024px) {
     header p {
         font-size: 32px;
         line-height: 36px;
     }
 }
 
-@media (min-width:1280px) {
+@media (min-width: 1280px) {
     header p {
         font-size: 34px;
         line-height: 38px;
     }
 }
 
-@media (min-width:1400px) {
+@media (min-width: 1400px) {
     header p {
         font-size: 36px;
         line-height: 40px;
     }
 }
 
-
-/* ABOUT - O MNIE */
+/* ABOUT ME*/
 .about {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -299,8 +282,6 @@ header p {
 
 .about h1 {
     margin: 10px 35%;
-    border-right: 1px solid var(--darkbgc);
-    border-left: 1px solid var(--darkbgc);
 }
 
 .about h2 {
@@ -336,7 +317,6 @@ header p {
     }
 }
 
-
 /* INSTALACJE  */
 .instalations {
     margin-bottom: 30px;
@@ -345,10 +325,7 @@ header p {
 }
 
 .instalations h1 {
-
     margin: 10px 12%;
-    border-right: 1px solid var(--darkbgc);
-    border-left: 1px solid var(--darkbgc);
 }
 
 .instalations h2 {
@@ -365,7 +342,7 @@ header p {
 
 @media (orientation: landscape) {
     .instalations img {
-        width: 50%
+        width: 50%;
     }
 }
 
@@ -373,33 +350,26 @@ header p {
     .hvac {
         float: left;
         width: 33%;
-        padding: 0 20px
+        padding: 0 20px;
     }
 
     .last p {
         float: none;
         width: 100%;
         margin-top: 20px;
-        display: inline-block
+        display: inline-block;
     }
 }
 
-
-
 /*programy do projektowwania*/
-
 
 .features {
     margin-bottom: 30px;
     padding: 0 7%;
-
 }
 
 .features h1 {
-
     margin: 10px auto;
-    border-right: 1px solid var(--darkbgc);
-    border-left: 1px solid var(--darkbgc);
 }
 
 .feature img {
@@ -412,7 +382,7 @@ header p {
 
 @media (orientation: landscape) {
     .feature img {
-        width: 50%
+        width: 50%;
     }
 }
 
@@ -424,9 +394,8 @@ header p {
     .feature {
         float: left;
         width: 33%;
-        padding: 0 20px
+        padding: 0 20px;
     }
-
 }
 
 /*WEBDEVELOPER*/
@@ -434,14 +403,10 @@ header p {
 .webdesign {
     margin-bottom: 30px;
     padding: 0 7%;
-
 }
 
 .webdesign h1 {
-
     margin: 10px 17%;
-    border-right: 1px solid var(--darkbgc);
-    border-left: 1px solid var(--darkbgc);
 }
 
 .web img {
@@ -452,21 +417,40 @@ header p {
     display: block;
 }
 
+.web {
+    transition: 0.2 ease-in-out;
+}
+
+.web-wrap {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+
+}
+
+.web:active {
+    transform: scale(0.95);
+}
+
+.web:focus {
+    transform: scale(0.95);
+}
+
 @media (orientation: landscape) {
     .web img {
-        width: 50%
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .web-wrap {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 1024px) {
-    .web .wrap {
-        position: relative;
-    }
-
-    .web {
-        float: left;
-        width: 50%;
-        padding: 0 20px
+    .web-wrap {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -475,7 +459,7 @@ header p {
     background-image: url(../img/bieszczady.JPG);
     background-position: center;
     background-size: cover;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
 .slogan h1,
@@ -506,28 +490,28 @@ header p {
     background-color: rgb(12, 36, 25, 0.35);
     min-height: 70vh;
     padding-top: 5%;
-    padding-bottom: 3%
+    padding-bottom: 3%;
 }
 
-@media (orientation:landscape) and (min-width:360px) {
+@media (orientation: landscape) and (min-width: 360px) {
     .slogan .bg {
         min-height: 50vh;
         padding-top: 5%;
-        padding-bottom: 3%
+        padding-bottom: 3%;
     }
 }
 
-@media (orientation:portrait) and (min-width:360px) {
+@media (orientation: portrait) and (min-width: 360px) {
     .slogan .bg {
         padding-top: 10%;
     }
 
     .slogan p {
-        font-size: 20px
+        font-size: 20px;
     }
 }
 
-@media (min-width:640px) {
+@media (min-width: 640px) {
     .slogan .bg {
         min-height: 70vh;
         padding-top: 5%;
@@ -535,7 +519,7 @@ header p {
     }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
     .slogan .bg {
         padding-top: 10%;
         padding-bottom: 5%;
@@ -548,7 +532,7 @@ header p {
     }
 }
 
-@media (min-width:1024px) {
+@media (min-width: 1024px) {
     .slogan .bg {
         padding-top: 10%;
         padding-bottom: 5%;
@@ -558,9 +542,7 @@ header p {
     .slogan h1,
     .slogam h2,
     .slogan p {
-
         width: 65%;
-
     }
 
     .slogan p {
@@ -569,22 +551,17 @@ header p {
     }
 }
 
-
-
 /*HOBBY*/
 .hobby {
     margin-bottom: 15px;
 }
 
 .hobby h1 {
-
     margin: 10px 26%;
-    border-right: 1px solid var(--darkbgc);
-    border-left: 1px solid var(--darkbgc);
 }
 
 .hobby h2 {
-    margin: 15px 25px
+    margin: 15px 25px;
 }
 
 .hobby .item {
@@ -597,27 +574,27 @@ header p {
 }
 
 .hobby .item:nth-of-type(1) {
-    background-image: url(../img/narty2.jpg)
+    background-image: url(../img/narty2.jpg);
 }
 
 .hobby .item:nth-of-type(2) {
-    background-image: url(../img/crossfit.jpg)
+    background-image: url(../img/crossfit.jpg);
 }
 
 .hobby .item:nth-of-type(3) {
-    background-image: url(../img/run.jpg)
+    background-image: url(../img/run.jpg);
 }
 
 .hobby .item:nth-of-type(4) {
-    background-image: url(../img/Liverpool.jpg)
+    background-image: url(../img/Liverpool.jpg);
 }
 
 .hobby .item:nth-of-type(5) {
-    background-image: url(../img/naples3.jpg)
+    background-image: url(../img/naples3.jpg);
 }
 
 .hobby .item:nth-of-type(6) {
-    background-image: url(../img/SW.png)
+    background-image: url(../img/SW.png);
 }
 
 .item p {
@@ -628,15 +605,14 @@ header p {
     background-color: rgba(0, 0, 0, 0.3);
     text-align: center;
     line-height: 25vh;
-    padding: 0
+    padding: 0;
 }
 
-@media (min-width:533px) {
+@media (min-width: 533px) {
     .hobby .item {
         float: left;
         width: 50%;
         height: 40vh;
-
     }
 
     .item p {
@@ -644,12 +620,11 @@ header p {
     }
 }
 
-@media (min-width:768px) and (orientation: portrait) {
+@media (min-width: 768px) and (orientation: portrait) {
     .hobby .item {
         float: none;
         width: 100%;
         height: 25vh;
-
     }
 
     .item p {
@@ -657,8 +632,7 @@ header p {
     }
 }
 
-@media (min-width:1024px) {
-
+@media (min-width: 1024px) {
     .hobby .item p {
         font-size: 24px;
         font-weight: bold;
@@ -673,7 +647,7 @@ header p {
 
     .hobby .item {
         background-size: 100%;
-        transition: 1s
+        transition: 1s;
     }
 
     .hobby .item:hover {
@@ -711,33 +685,32 @@ footer {
     font-family: 'saira', sans-serif;
     font-size: 12px;
     min-height: 60px;
-    line-height: 100%
+    line-height: 100%;
 }
 
-@media (min-width:640px) {
+@media (min-width: 640px) {
     footer {
         font-size: 16px;
         min-height: 60px;
-        line-height: 100%
+        line-height: 100%;
     }
 }
 
-@media (min-width:640px) {
+@media (min-width: 640px) {
     footer {
         font-size: 16px;
         min-height: 60px;
-        line-height: 100%
+        line-height: 100%;
     }
 }
 
-@media (min-width:1024px) {
+@media (min-width: 1024px) {
     footer {
         font-size: 20px;
         min-height: 60px;
-        line-height: 100%
+        line-height: 100%;
     }
 }
-
 
 /* style do pojawiajacych sie elementow */
 .about,
