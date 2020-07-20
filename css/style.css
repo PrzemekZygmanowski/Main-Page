@@ -432,10 +432,6 @@ header p {
     transform: scale(0.95);
 }
 
-.web:focus {
-    transform: scale(0.95);
-}
-
 @media (orientation: landscape) {
     .web img {
         width: 50%;
