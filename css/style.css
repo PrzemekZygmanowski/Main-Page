@@ -273,6 +273,11 @@ header p {
     }
 }
 
+
+section {
+    margin: 24px auto
+}
+
 /* ABOUT ME*/
 .about {
     margin-top: 30px;
@@ -317,7 +322,7 @@ header p {
     }
 }
 
-/* INSTALACJE  */
+/* INSTALATIONS  */
 .instalations {
     margin-bottom: 30px;
     padding: 0 7%;
@@ -332,36 +337,57 @@ header p {
     margin: 15px;
 }
 
+.hvac-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hvac {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .instalations img {
-    margin: 5% auto;
     width: 70%;
-    padding: 10px;
     max-width: 320px;
     display: block;
 }
 
+/* display: grid;
+grid-template-columns: repeat(1, 1fr);
+grid-gap: 15px; */
+
 @media (orientation: landscape) {
     .instalations img {
-        width: 50%;
+        width: 30%;
     }
 }
 
 @media (min-width: 1024px) {
+    .hvac-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
     .hvac {
-        float: left;
-        width: 33%;
-        padding: 0 20px;
+        width: 30%;
+
     }
 
     .last p {
-        float: none;
         width: 100%;
         margin-top: 20px;
         display: inline-block;
     }
 }
 
-/*programy do projektowwania*/
+/*HVAC PROGRAMS*/
 
 .features {
     margin-bottom: 30px;
@@ -380,6 +406,13 @@ header p {
     display: block;
 }
 
+.features-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (orientation: landscape) {
     .feature img {
         width: 50%;
@@ -387,12 +420,14 @@ header p {
 }
 
 @media (min-width: 1024px) {
-    .features .wrap {
-        position: relative;
+    .features-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
     }
 
     .feature {
-        float: left;
         width: 33%;
         padding: 0 20px;
     }
@@ -550,6 +585,12 @@ header p {
 /*HOBBY*/
 .hobby {
     margin-bottom: 15px;
+
+}
+
+.hobby-wrap {
+    display: flex;
+    flex-direction: column;
 }
 
 .hobby h1 {
@@ -605,8 +646,13 @@ header p {
 }
 
 @media (min-width: 533px) {
+    .hobby-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
     .hobby .item {
-        float: left;
         width: 50%;
         height: 40vh;
     }
@@ -618,7 +664,7 @@ header p {
 
 @media (min-width: 768px) and (orientation: portrait) {
     .hobby .item {
-        float: none;
+
         width: 100%;
         height: 25vh;
     }
@@ -629,6 +675,12 @@ header p {
 }
 
 @media (min-width: 1024px) {
+    .hobby-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
     .hobby .item p {
         font-size: 24px;
         font-weight: bold;
@@ -651,60 +703,64 @@ header p {
     }
 }
 
-/* CIASTECZKA - MODAL */
-.cookie {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    background-color: var(--lightbgc);
-    border: 2px solid var(--darkbgc);
-    border-radius: 10px;
-    width: 100vw;
-    height: 40vh;
-    z-index: 3;
+/* CONTACT SECTION */
+
+.contact-section {
+    margin: 25px auto;
 }
 
-.cookie img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60vw;
-    /* top: 50%;
-    left: 50%;
-    transform: translateX(50%) */
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 15px auto;
 }
 
-/* STÓPKA */
+
+.contact p {
+    margin: 0 auto;
+}
+
+.phone {
+    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+    .contact-section {
+        margin: 32px auto
+    }
+
+    .contact {
+        margin: 24px
+    }
+}
+
+/* FOOTER */
 footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--darkbgc);
     color: var(--lightbgc);
     font-family: 'saira', sans-serif;
     font-size: 12px;
-    min-height: 60px;
-    line-height: 100%;
+    height: 20px;
+    text-align: center;
 }
 
 @media (min-width: 640px) {
     footer {
         font-size: 16px;
-        min-height: 60px;
-        line-height: 100%;
-    }
-}
-
-@media (min-width: 640px) {
-    footer {
-        font-size: 16px;
-        min-height: 60px;
-        line-height: 100%;
+        height: 24px;
     }
 }
 
 @media (min-width: 1024px) {
     footer {
         font-size: 20px;
-        min-height: 60px;
-        line-height: 100%;
+        height: 28px;
     }
 }
 
@@ -733,12 +789,12 @@ footer {
 .features,
 .instalations,
 .webdesign {
-    transition: 0.4s linear;
+    transition: 0.4s ease-in-out;
 }
 
 .slogan,
 .hobby {
-    transition: 1s linear;
+    transition: 1s ease-in-out;
     transform: scale(0);
 }
 
