@@ -1,27 +1,36 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 body {
     --lightbgc: rgba(250, 255, 250, 1);
-    --darkbgc: rgba(5, 0, 5, 1);
+    --darkbgc: #212121;
+    --thirdc: #5cdaff;
     overflow-x: hidden;
     background-color: var(--lightbgc);
     color: var(--darkbgc);
     max-width: 1600px;
 }
 
-.clearfix::after {
-    content: '';
-    display: block;
-    clear: both;
+/* MAIN FEATURES  */
+section:nth-of-type(odd) {
+    background-color: var(--lightbgc);
+    color: var(--darkbgc);
 }
 
-/* MAIN FEATURES  */
+section:nth-of-type(even) {
+    background-color: var(--darkbgc);
+    color: var(--lightbgc);
+}
+
+section:nth-of-type(even) h1 {
+    color: var(--thirdc);
+}
+
 h1 {
-    font-size: 16px;
+    font-size: 18px;
     text-transform: uppercase;
     text-align: center;
     font-family: 'Saira', sans-serif;
@@ -29,7 +38,7 @@ h1 {
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 18px;
     text-transform: uppercase;
     text-align: center;
     font-family: 'Saira Condensed', sans-serif;
@@ -60,10 +69,11 @@ p {
     cursor: pointer;
     z-index: 2;
     transition: 0.3s;
+    color: var(--thirdc)
 }
 
 .burger i.changeColor1 {
-    color: var(--lightbgc);
+    /* color: var(--lightbgc); */
     transform: rotate(360deg);
 }
 
@@ -148,6 +158,10 @@ a {
 }
 
 /* MAIN FEATURES */
+section {
+    padding: 30px 20px 0 20px;
+}
+
 @media (min-width: 360px) and (orientation: portrait) {
 
     h1,
@@ -164,6 +178,10 @@ a {
 
 @media (min-width: 768px) {
 
+    section {
+        padding: 40px 5% 0 5%;
+    }
+
     h1,
     h2 {
         font-size: 28px;
@@ -176,6 +194,10 @@ a {
 }
 
 @media (min-width: 1024px) {
+
+    section {
+        padding: 40px 5% 0 5%;
+    }
 
     h1,
     h2 {
@@ -273,17 +295,7 @@ header p {
     }
 }
 
-
-section {
-    margin: 24px auto
-}
-
 /* ABOUT ME*/
-.about {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 0 7%;
-}
 
 .about h1 {
     margin: 10px 35%;
@@ -293,14 +305,25 @@ section {
     margin-top: 15px;
 }
 
+.portrait {
+    background-image: url(../img/me1.png);
+    background-position: top 5%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    height: 150px;
+    width: 150px;
+    border-radius: 2%;
+}
+
 .about p {
     margin: 10px 6px 20px 6px;
 }
 
 @media (min-width: 360px) {
-    .about {
-        margin-top: 30px;
-    }
+    /* .about {
+        padding-top: 30px;
+    } */
 
     .about h1 {
         margin: 10px 35%;
@@ -309,9 +332,7 @@ section {
 }
 
 @media (min-width: 768px) {
-    .about {
-        margin-top: 30px;
-    }
+
 
     .about h1 {
         margin: 10px 35%;
@@ -324,8 +345,6 @@ section {
 
 /* INSTALATIONS  */
 .instalations {
-    margin-bottom: 30px;
-    padding: 0 7%;
     transform: translateX(-100vw);
 }
 
@@ -352,20 +371,12 @@ section {
 }
 
 .instalations img {
-    width: 70%;
+    width: 30%;
     max-width: 320px;
     display: block;
 }
 
-/* display: grid;
-grid-template-columns: repeat(1, 1fr);
-grid-gap: 15px; */
 
-@media (orientation: landscape) {
-    .instalations img {
-        width: 30%;
-    }
-}
 
 @media (min-width: 1024px) {
     .hvac-wrap {
@@ -389,10 +400,6 @@ grid-gap: 15px; */
 
 /*HVAC PROGRAMS*/
 
-.features {
-    margin-bottom: 30px;
-    padding: 0 7%;
-}
 
 .features h1 {
     margin: 10px auto;
@@ -400,7 +407,7 @@ grid-gap: 15px; */
 
 .feature img {
     margin: 5% auto;
-    width: 70%;
+    width: 30%;
     padding: 10px;
     max-width: 320px;
     display: block;
@@ -415,7 +422,7 @@ grid-gap: 15px; */
 
 @media (orientation: landscape) {
     .feature img {
-        width: 50%;
+        width: 30%;
     }
 }
 
@@ -434,12 +441,6 @@ grid-gap: 15px; */
 }
 
 /*WEBDEVELOPER*/
-
-.webdesign {
-    margin-bottom: 30px;
-    padding: 0 7%;
-}
-
 .webdesign h1 {
     margin: 10px 17%;
 }
@@ -458,13 +459,18 @@ grid-gap: 15px; */
 
 .web-wrap {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    align-items: center;
 
 }
 
 .web:active {
     transform: scale(0.95);
+}
+
+.web:last-of-type {
+    padding-bottom: 30px;
 }
 
 @media (orientation: landscape) {
@@ -473,11 +479,7 @@ grid-gap: 15px; */
     }
 }
 
-@media (min-width: 768px) {
-    .web-wrap {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+
 
 @media (min-width: 1024px) {
     .web-wrap {
@@ -490,7 +492,7 @@ grid-gap: 15px; */
     background-image: url(../img/bieszczady.JPG);
     background-position: center;
     background-size: cover;
-    margin-bottom: 30px;
+    padding: 0;
 }
 
 .slogan h1,
@@ -583,9 +585,9 @@ grid-gap: 15px; */
 }
 
 /*HOBBY*/
-.hobby {
-    margin-bottom: 15px;
 
+.hobby {
+    padding: 30px 0 0 0;
 }
 
 .hobby-wrap {
@@ -602,7 +604,6 @@ grid-gap: 15px; */
 }
 
 .hobby .item {
-    /* display: block; */
     height: 25vh;
     background-position: center;
     background-size: cover;
@@ -704,10 +705,6 @@ grid-gap: 15px; */
 }
 
 /* CONTACT SECTION */
-
-.contact-section {
-    margin: 25px auto;
-}
 
 .contact {
     display: flex;
