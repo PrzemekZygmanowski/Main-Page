@@ -14,51 +14,7 @@ body {
     max-width: 1600px;
 }
 
-/* MAIN FEATURES  */
-section:nth-of-type(odd) {
-    background-color: var(--lightbgc);
-    color: var(--darkbgc);
-}
 
-section:nth-of-type(even) {
-    background-color: var(--darkbgc);
-    color: var(--lightbgc);
-}
-
-section:nth-of-type(even) h1 {
-    color: var(--thirdc);
-}
-
-h1 {
-    font-size: 18px;
-    text-transform: uppercase;
-    text-align: center;
-    font-family: 'Saira', sans-serif;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 18px;
-    text-transform: uppercase;
-    text-align: center;
-    font-family: 'Saira Condensed', sans-serif;
-    font-weight: 500;
-}
-
-h1,
-h2 {
-    line-height: 20px;
-    margin: 2px auto;
-}
-
-p {
-    font-size: 16px;
-    font-family: 'Saira', sans-serif;
-    text-align: left;
-    line-height: 150%;
-    padding-bottom: 10px;
-    margin: 10px 6px 20px 6px;
-}
 
 /* BURGER  */
 .burger i {
@@ -73,7 +29,6 @@ p {
 }
 
 .burger i.changeColor1 {
-    /* color: var(--lightbgc); */
     transform: rotate(360deg);
 }
 
@@ -93,7 +48,6 @@ aside.menu {
     top: 1.25%;
     right: -100vw;
     width: 95%;
-    height: 60vh;
     z-index: 1;
     transition: 0.5s ease-in-out;
     border: 2px solid var(--lightbgc);
@@ -157,9 +111,54 @@ a {
     }
 }
 
+
 /* MAIN FEATURES */
 section {
-    padding: 30px 20px 0 20px;
+    padding: 30px 20px 10px 20px;
+}
+
+section:nth-of-type(odd) {
+    background-color: var(--lightbgc);
+    color: var(--darkbgc);
+}
+
+section:nth-of-type(even) {
+    background-color: var(--darkbgc);
+    color: var(--lightbgc);
+}
+
+section:nth-of-type(even) h1 {
+    color: var(--thirdc);
+}
+
+h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Saira', sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 500;
+}
+
+h1,
+h2 {
+    line-height: 20px;
+    margin: 2px auto;
+}
+
+p {
+    font-size: 16px;
+    font-family: 'Saira', sans-serif;
+    text-align: left;
+    line-height: 150%;
+    padding: 10px 10px;
 }
 
 @media (min-width: 360px) and (orientation: portrait) {
@@ -171,9 +170,9 @@ section {
         margin: 2% auto;
     }
 
-    p {
+    /* p {
         margin: 10px 10px 20px 10px;
-    }
+    } */
 }
 
 @media (min-width: 768px) {
@@ -231,27 +230,55 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
     position: relative;
+    overflow: hidden;
 }
 
 header div.welcome {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: absolute;
-    bottom: 20%;
-    background-color: rgba(249, 250, 232, 0.5);
+    /* bottom: 20%; */
+    background-color: rgba(33, 33, 33, 0.5);
     width: 100%;
+    right: -20%;
+    top: 27%;
+    animation: text 3s linear;
+    animation-iteration-count: inherit;
+    overflow-x: hidden;
 }
 
-header p {
-    font-size: 16px;
-    text-transform: uppercase;
-    text-align: center;
-    font-family: 'Saira Condensed', sans-serif;
-    font-weight: normal;
-    line-height: 20px;
-    margin: 2px auto;
-    padding: 0;
+@keyframes text {
+    0% {
+        opacity: 0;
+        top: 10%
+    }
+
+
+    20% {
+        opacity: 0.5;
+        top: 12.5%
+    }
+
+    40% {
+        opacity: 1;
+        top: 15%
+    }
+
+    100% {
+        top: 27%
+    }
+}
+
+header h1,
+header h2 {
+    color: var(--lightbgc);
+    text-align: left;
+    padding: 5px 10px;
+    margin: 0;
 }
 
 @media (orientation: landscape) {
@@ -316,14 +343,7 @@ header p {
     border-radius: 2%;
 }
 
-.about p {
-    margin: 10px 6px 20px 6px;
-}
-
 @media (min-width: 360px) {
-    /* .about {
-        padding-top: 30px;
-    } */
 
     .about h1 {
         margin: 10px 35%;
@@ -336,10 +356,6 @@ header p {
 
     .about h1 {
         margin: 10px 35%;
-    }
-
-    .about p {
-        padding-bottom: 10px;
     }
 }
 
@@ -489,9 +505,10 @@ header p {
 
 /*SLOGAN*/
 .slogan {
-    background-image: url(../img/bieszczady.JPG);
+    background-image: url(../img/slogan.JPG);
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     padding: 0;
 }
 
@@ -706,6 +723,41 @@ header p {
 
 /* CONTACT SECTION */
 
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
+    background-color: var(--lightbgc);
+}
+
+label,
+input,
+textarea {
+    font-family: 'Saira', sans-serif;
+    background-color: var(--lightbgc);
+    padding: 5px 0;
+    width: 100%;
+}
+
+input,
+textarea {
+    border: 1px solid var(--darkbgc);
+    border-radius: 2px;
+}
+
+.submit {
+
+    width: 25%;
+    margin: 20px auto;
+    padding: 10px auto;
+
+}
+
+h2 {
+    padding-top: 15px;
+}
+
 .contact {
     display: flex;
     flex-direction: column;
@@ -716,15 +768,33 @@ header p {
 }
 
 
-.contact p {
+.contact a {
+    cursor: pointer;
+    color: var(--darkbgc);
     margin: 0 auto;
 }
 
 .phone {
     cursor: pointer;
+    padding: 0;
+    margin: 0 auto
+}
+
+@media (orientation: landscape) {
+    form {
+        width: 50%;
+    }
 }
 
 @media (min-width: 1024px) {
+    form {
+        width: 50%;
+    }
+
+    .submit {
+        width: 10%;
+    }
+
     .contact-section {
         margin: 32px auto
     }
