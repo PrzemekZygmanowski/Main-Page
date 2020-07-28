@@ -32,11 +32,17 @@ body {
     transform: rotate(360deg);
 }
 
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (orientation: landscape) {
     .burger i {
-        top: 1%;
+        top: 2.5%;
         right: 2.5%;
-        font-size: 36px;
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .burger i {
+        display: none;
     }
 }
 
@@ -54,6 +60,10 @@ aside.menu {
     border-radius: 10px;
 }
 
+.home-page {
+    display: none
+}
+
 nav {
     height: 60vh;
     display: flex;
@@ -63,7 +73,8 @@ nav {
 
 a h1 {
     font-size: 18px;
-    font-weight: 900;
+    font-weight: 500;
+    letter-spacing: 1.5;
     color: var(--lightbgc);
 }
 
@@ -82,33 +93,71 @@ a {
     }
 }
 
-@media (min-width: 768px) {
-    a h1 {
-        font-size: 28px;
+@media (orientation: landscape) {
+
+    aside.menu {
+        top: 2.5%;
+        right: -100vw;
+        width: 60%;
+    }
+
+    aside.show {
+        right: 20%;
     }
 }
 
-@media (min-width: 1280px) and (orientation: landscape) {
+@media (min-width: 768px) {
+    a h1 {
+        font-size: 24px;
+    }
+
     aside.menu {
-        width: 90vw;
-        height: 8vh;
+        top: 2.5%;
+        right: -100vw;
+        width: 60%;
+    }
+
+    aside.show {
+        right: 20%;
+    }
+
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+    .home-page {
+        display: block;
+        position: fixed;
+        left: 5vh;
+    }
+
+    aside.menu {
+        width: 100vw;
+        height: 50px;
+        right: 0;
+        top: 0;
+        background-color: var(--darkbgc);
+        opacity: 1;
+        z-index: 1;
+        border: none;
+        border-radius: 0;
     }
 
     nav {
-        width: 90vw;
+        position: fixed;
+        right: 0;
+        margin: 0;
+        padding-right: 15px;
+        width: 75vw;
         height: 8vh;
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
+        justify-content: space-around;
     }
 
-    aside.show {
-        right: 7.5%;
-    }
-
-    a {
+    /* a {
         flex-basis: 15;
-    }
+    } */
 }
 
 
@@ -170,9 +219,6 @@ p {
         margin: 2% auto;
     }
 
-    /* p {
-        margin: 10px 10px 20px 10px;
-    } */
 }
 
 @media (min-width: 768px) {
@@ -239,9 +285,8 @@ header {
 header div.welcome {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     position: absolute;
-    /* bottom: 20%; */
     background-color: rgba(33, 33, 33, 0.5);
     width: 100%;
     right: -20%;
@@ -256,7 +301,6 @@ header div.welcome {
         opacity: 0;
         top: 10%
     }
-
 
     20% {
         opacity: 0.5;
@@ -277,42 +321,100 @@ header h1,
 header h2 {
     color: var(--lightbgc);
     text-align: left;
-    padding: 5px 10px;
+    padding: 0 10px;
     margin: 0;
+    text-shadow: 0 0 4px var(--darkbgc);
 }
 
 @media (orientation: landscape) {
     header {
         background-image: url(../img/narty5.JPG);
     }
-}
 
-@media (min-width: 360px) and (orientation: portrait) {
-    header p {
-        font-size: 20px;
-        line-height: 24px;
+    header div.welcome {
+        width: 50%;
+        height: 100px;
+        right: 0%;
+        top: 45%;
+        animation: text 2s linear;
+        animation-delay: 1s;
+        animation-iteration-count: inherit;
+        overflow-x: hidden;
     }
-}
 
-@media (min-width: 768px) {
-    header p {
-        font-size: 28px;
-        line-height: 32px;
+    @keyframes text {
+        0% {
+            opacity: 0;
+            right: -60%
+        }
+
+
+        20% {
+            opacity: 0.5;
+            right: -48%
+        }
+
+        40% {
+            opacity: 1;
+            right: -36%
+        }
+
+        100% {
+            right: 0%
+        }
     }
+
 }
 
-@media (min-width: 1024px) {
-    header p {
+@media (min-width: 360px) and (orientation: portrait) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+
+    header h1,
+    header h2 {
+        padding-left: 10px;
         font-size: 32px;
-        line-height: 36px;
+        letter-spacing: 1.5;
+        text-shadow: 0 0 4px var(--darkbgc);
+
+    }
+
+    header div.welcome {
+        width: 40%;
+        height: 160px;
+    }
+
+    @keyframes text {
+        0% {
+            opacity: 0;
+            right: -60%
+        }
+
+
+        20% {
+            opacity: 0.5;
+            right: -48%
+        }
+
+        40% {
+            opacity: 1;
+            right: -36%
+        }
+
+        100% {
+            right: 0%
+        }
     }
 }
 
 @media (min-width: 1280px) {
-    header p {
-        font-size: 34px;
-        line-height: 38px;
+    header {
+        background-position: 0 25%;
     }
+
+
 }
 
 @media (min-width: 1400px) {
