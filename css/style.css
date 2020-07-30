@@ -14,6 +14,11 @@ body {
     max-width: 1600px;
 }
 
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both
+}
 
 
 /* BURGER  */
@@ -148,22 +153,19 @@ a {
         margin: 0;
         padding-right: 15px;
         width: 75vw;
-        height: 8vh;
+        height: 50px;
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
         justify-content: space-around;
     }
 
-    /* a {
-        flex-basis: 15;
-    } */
 }
 
 
 /* MAIN FEATURES */
 section {
-    padding: 30px 20px 10px 20px;
+    padding: 30px 20px 30px 20px;
 }
 
 section:nth-of-type(odd) {
@@ -224,7 +226,7 @@ p {
 @media (min-width: 768px) {
 
     section {
-        padding: 40px 5% 0 5%;
+        padding: 40px 5% 30px 5%;
     }
 
     h1,
@@ -234,14 +236,14 @@ p {
     }
 
     p {
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 
 @media (min-width: 1024px) {
 
     section {
-        padding: 40px 5% 0 5%;
+        padding: 40px 5% 30px 5%;
     }
 
     h1,
@@ -291,7 +293,7 @@ header div.welcome {
     width: 100%;
     right: -20%;
     top: 27%;
-    animation: text 3s linear;
+    animation: text 2s linear;
     animation-iteration-count: inherit;
     overflow-x: hidden;
 }
@@ -299,17 +301,17 @@ header div.welcome {
 @keyframes text {
     0% {
         opacity: 0;
-        top: 10%
+        top: 20%
     }
 
     20% {
         opacity: 0.5;
-        top: 12.5%
+        top: 21.4%
     }
 
     40% {
         opacity: 1;
-        top: 15%
+        top: 22.8%
     }
 
     100% {
@@ -334,41 +336,51 @@ header h2 {
     header div.welcome {
         width: 50%;
         height: 100px;
-        right: 0%;
+        right: 0;
         top: 45%;
         animation: text 2s linear;
-        animation-delay: 1s;
         animation-iteration-count: inherit;
         overflow-x: hidden;
+        opacity: 1;
     }
 
     @keyframes text {
         0% {
+
+            right: -60%;
             opacity: 0;
-            right: -60%
         }
 
 
         20% {
-            opacity: 0.5;
+            /* opacity: 0.25; */
             right: -48%
         }
 
         40% {
-            opacity: 1;
+            /* opacity: 0.5; */
             right: -36%
         }
 
+        60% {
+
+            right: -24%;
+            opacity: 0.5;
+        }
+
+        80% {
+
+            right: -12%;
+            opacity: 0.75;
+        }
+
         100% {
-            right: 0%
+            right: 0;
+            opacity: 1
         }
     }
 
 }
-
-@media (min-width: 360px) and (orientation: portrait) {}
-
-@media (min-width: 768px) {}
 
 @media (min-width: 1024px) and (orientation: landscape) {
 
@@ -388,39 +400,40 @@ header h2 {
 
     @keyframes text {
         0% {
+            right: -60%;
             opacity: 0;
-            right: -60%
         }
 
-
         20% {
-            opacity: 0.5;
             right: -48%
         }
 
         40% {
-            opacity: 1;
             right: -36%
         }
 
+        60% {
+            right: -24%;
+            opacity: 0.35;
+        }
+
+        80% {
+
+            right: -12%;
+            opacity: 0.6;
+        }
+
         100% {
-            right: 0%
+            right: 0;
+            opacity: 1
         }
     }
+
 }
 
 @media (min-width: 1280px) {
     header {
         background-position: 0 25%;
-    }
-
-
-}
-
-@media (min-width: 1400px) {
-    header p {
-        font-size: 36px;
-        line-height: 40px;
     }
 }
 
@@ -435,13 +448,9 @@ header h2 {
 }
 
 .portrait {
-    background-image: url(../img/me1.png);
-    background-position: top 5%;
-    background-size: cover;
-    background-repeat: no-repeat;
     margin: 0 auto;
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     border-radius: 2%;
 }
 
@@ -458,6 +467,27 @@ header h2 {
 
     .about h1 {
         margin: 10px 35%;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .about h1 {
+        padding-bottom: 30px;
+    }
+
+    .about-portrait {
+        float: left;
+    }
+
+    .portrait {
+        width: 400px;
+        height: auto;
+        padding-right: 40px;
+    }
+
+    .about-text {
+        width: 100%;
     }
 }
 
@@ -507,12 +537,6 @@ header h2 {
     .hvac {
         width: 30%;
 
-    }
-
-    .last p {
-        width: 100%;
-        margin-top: 20px;
-        display: inline-block;
     }
 }
 
@@ -569,17 +593,19 @@ header h2 {
     padding: 10px;
     max-width: 320px;
     display: block;
+    justify-self: start
 }
 
 .web {
     transition: 0.2 ease-in-out;
+    align-self: end;
+    justify-self: start
 }
 
 .web-wrap {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
-    align-items: center;
 
 }
 
@@ -587,21 +613,26 @@ header h2 {
     transform: scale(0.95);
 }
 
-.web:last-of-type {
-    padding-bottom: 30px;
+.web img:last-of-type {
+    width: 30%;
+    padding: 10px;
 }
+
 
 @media (orientation: landscape) {
     .web img {
-        width: 50%;
+        width: 40%;
+    }
+
+    .web-wrap {
+        grid-template-columns: repeat(3, 1fr);
+
     }
 }
 
-
-
 @media (min-width: 1024px) {
     .web-wrap {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
