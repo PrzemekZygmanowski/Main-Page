@@ -41,11 +41,11 @@ function submitForm(e) {
     saveMessage(fname, lname, mail, message)
 
     // show alert 
-    alertMsg.style.display = 'block';
+    alertMsg.style.opacity = '1';
 
     // hide alert after 3s
     setTimeout(function () {
-        alertMsg.style.display = 'none';
+        alertMsg.style.opacity = '0';
     }, 3000)
 
     // clear form 

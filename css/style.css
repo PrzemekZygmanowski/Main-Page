@@ -934,21 +934,25 @@ h2 {
 }
 
 .alert {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
     padding: 10px;
     background-color: var(--darkbgc);
     border-radius: 3px;
-    color: var(--lightbgc);
-    display: none;
-}
-
-.alert.send {
-    display: block;
+    color: var(--thirdc);
+    opacity: 0;
+    transition: ease-in-out 0.3s;
 }
 
 @media (orientation: landscape) {
     form {
         width: 50%;
+    }
+
+    .alert {
+        width: 60%;
     }
 }
 
@@ -967,6 +971,10 @@ h2 {
 
     .contact {
         margin: 24px
+    }
+
+    .alert {
+        width: 60%;
     }
 }
 
