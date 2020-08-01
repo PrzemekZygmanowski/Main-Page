@@ -900,12 +900,19 @@ textarea {
 }
 
 .submit {
-
+    cursor: pointer;
     width: 25%;
     margin: 20px auto;
     padding: 10px auto;
-
+    transition: 0.2s ease-in-out;
 }
+
+.submit:hover {
+    background-color: var(--darkbgc);
+    color: var(--thirdc);
+    transform: scale(1.1git);
+}
+
 
 h2 {
     padding-top: 15px;
@@ -954,6 +961,13 @@ h2 {
     .alert {
         width: 60%;
     }
+
+    .submit {
+        cursor: pointer;
+        width: 35%;
+        margin: 20px auto;
+        padding: 10px auto;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -962,7 +976,7 @@ h2 {
     }
 
     .submit {
-        width: 10%;
+        width: 25%;
     }
 
     .contact-section {
