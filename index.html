@@ -272,17 +272,20 @@
     <h1>Kontakt</h1>
     <h2>możesz skontaktować się ze mną poprzez formularz:</h2>
     <div class="contact-container" id="contact-container">
-      <form action="">
+      <form action="" id="contactForm">
         <label for="fname">Imię:</label>
-        <input type="text" id='fname' placeholder="Tutaj wpisz swoje imię">
+        <input type="text" id='fname' placeholder="Tutaj wpisz swoje imię" required>
         <label for="lname">Nazwisko:</label>
-        <input type="text" id='lname' placeholder="A tutaj nazwisko">
+        <input type="text" id='lname' placeholder="A tutaj nazwisko" required>
         <label for="mail">Email:</label>
-        <input type="email" id='mail' placeholder="mail@mail.com">
+        <input type="email" id='mail' placeholder="mail@mail.com" required>
         <label for="subject">Napisz co chciałbyś wiedzieć:</label>
         <textarea name="subject" id="subject" cols="30" rows="10" placeholder="Miejsce na pytanie"></textarea>
         <input class='submit' id="submit" type="submit" value="Wyślij">
       </form>
+      <div class="alert">
+        <p>Twoja wiadomość została wysłana :) </p>
+      </div>
     </div>
     <h2>lub poprzez jedną z opcji:</h2>
     <div class="contact" id="contact">
@@ -299,7 +302,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
   <script src="script/script.js"></script>
-  <script src="dist/js/lightbox.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
+  <script src="script/form.js"></script>
 </body>
 
 </html>
