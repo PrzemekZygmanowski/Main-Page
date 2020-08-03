@@ -1,84 +1,27 @@
-// skrolowanie przycisków menu 
-$(".me").on("click", function () {
-    $("body, html").animate({
-        scrollTop: $(".about").offset().top
-    }, 2000)
-})
-$(".instal").on("click", function () {
-    $("body, html").animate({
-        scrollTop: $(".instalations").offset().top
-    }, 2000)
-})
-$(".front").on("click", function () {
-    $("body,html").animate({
-        scrollTop: $(".webdesign").offset().top
-    }, 2000)
-})
-$(".motto").on("click", function () {
-    $("body,html").animate({
-        scrollTop: $(".slogan").offset().top
-    }, 2000)
-})
-$(".interest").on("click", function () {
-    $("body,html").animate({
-        scrollTop: $(".hobby").offset().top
-    }, 2000)
-})
+// Variables
+const burgerBtn = document.querySelector('.burger'),
+    menu = document.querySelector('.menu');
 
-// zmiana koloru burgera w zaleznosci od pozycji na stronie
-function changeBurgerColor() {
-    const BurgerScrollSize = $(document).scrollTop();
-    const welcomeHeight = $("header.welcome").height();
-    const welcomeDistance = $("header.welcome").offset().top;
-    const sloganHeight = $("div.bg").height();
-    const sloganDistance = $("div.bg").offset().top;
-    const hobbyHeight = $("div.hobby").height();
-    const hobbyDistance = $("div.hobby").offset().top;
-    if (BurgerScrollSize > welcomeHeight - welcomeDistance) {
-        $(".burger i").removeClass("changeColor1");
-    } else if (BurgerScrollSize > sloganHeight + sloganDistance) {
-        $(".burger i").addClass("changeColor1", "rotate");
-    } else if (BurgerScrollSize > hobbyHeight - hobbyDistance) {
-        $(".burger i").addClass("changeColor1", "rotate")
-    } else {
-        $(".burger i").addClass("changeColor1", "rotate");
-    }
-    console.log("zmiana koloru")
+// Burger & menu function 
+function showMenu() {
+    menu.classList.toggle('show')
 }
 
-$(document).on("scroll", changeBurgerColor);
+// Menu  Scroll Animation
+$('.navbar a').on('click', function (e) {
+    if (this.hash !== '') {
+        e.preventDefault();
 
-// zmiana koloru na slogan 
-function changeBurgerColor2() {
-    const BurgerScrollSize = $(document).scrollTop();
-    const sloganHeight = $("div.bg").height();
-    const sloganDistance = $("div.bg").offset().top;
-    if (BurgerScrollSize > sloganDistance) {
-        $(".burger i").addClass("changeColor1", "rotate");
-    }
-    console.log("zmiana koloru2")
-}
-$(document).on("scroll", changeBurgerColor2);
+        const hash = this.hash;
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 800);
 
-// function changeBurgerColor() {
-//     const BurgerScrollSize = $(document).scrollTop();
-//     const hobbyDistance = $("div.hobby").offset().top;
-//     if (BurgerScrollSize > hobbyDistance) {
-//         $(".burger i").addClass("changeColor1")
-//     }
-//     console.log("zmiana koloru hobby")
-// }
-
-// klikniecie w burgera
-$(".burger i").on("click", function () {
-    console.log("dziala")
-    $("aside").toggleClass("show");
-    if ("aside.show") {
-        $(".burger i").addClass("changeColor1")
-        // } else {
-        //     $(".burger i").toggleClass("changeColor1");
+        // Menu hide function 
+        menu.classList.remove('show')
     }
 })
+
 // przesuwane sekcje 
 $(document).on("scroll", function () {
     const windowHeight = $(window).height();
@@ -88,11 +31,7 @@ $(document).on("scroll", function () {
     const $instalations = $(".instalations");
     const $features = $(".features");
     const $web = $(".webdesign");
-    // pobieramy wysokosci elementow
-    // const aboutHeight = $about.outerHeight();
-    // const instalationsHeight = $instalations.outerHeight();
-    // const featuresHeight = $features.outerHeight();
-    // const webHeight = $web.outerHeight();
+
     // pobieramy odleglosc elementow od gory strony
     const aboutDistance = $about.offset().top;
     const instalationsDistance = $instalations.offset().top;
@@ -113,7 +52,6 @@ $(document).on("scroll", function () {
     }
 
     // animacja sloganu i hobby
-    // Druga sekcja
     // pobieramy dwa elementy pierwsze
     const $slogan = $(".slogan");
     const $interest = $(".hobby");
@@ -139,3 +77,7 @@ $(document).on("scroll", function () {
         $about.removeClass("active2");
     }
 })
+
+
+// Listeners 
+burgerBtn.addEventListener('click', showMenu);
