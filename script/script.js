@@ -4,6 +4,7 @@ const burgerBtn = document.querySelector('.burger'),
 
 // Burger & menu function 
 function showMenu() {
+    burgerBtn.classList.toggle('open')
     menu.classList.toggle('show')
 }
 
