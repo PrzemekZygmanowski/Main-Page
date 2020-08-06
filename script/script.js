@@ -1,6 +1,6 @@
 // Variables
 const burgerBtn = document.querySelector('.burger'),
-    menu = document.querySelector('.menu');
+    menu = document.querySelector('.navbar');
 
 // Burger & menu function 
 function showMenu() {
@@ -13,69 +13,106 @@ $('.navbar a').on('click', function (e) {
     if (this.hash !== '') {
         e.preventDefault();
 
+        // Scroll to the section 
         const hash = this.hash;
         $('html, body').animate({
             scrollTop: $(hash).offset().top
         }, 800);
 
         // Menu hide function 
-        menu.classList.remove('show')
+        menu.classList.remove('show');
+        burgerBtn.classList.remove('open')
     }
 })
 
-// przesuwane sekcje 
+// Section scroll animation
 $(document).on("scroll", function () {
-    const windowHeight = $(window).height();
-    const scrollValue = $(this).scrollTop();
-    // pobieramy elementy przesuwne
-    const $about = $(".about");
-    const $instalations = $(".instalations");
-    const $features = $(".features");
-    const $web = $(".webdesign");
+    const windowHeight = $(window).height(),
+        scrollValue = $(this).scrollTop();
 
-    // pobieramy odleglosc elementow od gory strony
-    const aboutDistance = $about.offset().top;
-    const instalationsDistance = $instalations.offset().top;
-    const featuresDistance = $features.offset().top;
-    const webdistance = $web.offset().top;
-    // instrukcja warunkowa 
+
+    // section variables 
+    const $about = $(".about"),
+        $web = $(".webdesign"),
+        $webEl = $('.web'),
+        $instalations = $(".instalations"),
+        $features = $(".features"),
+        $form = $(".contact-section"),
+        $slogan = $(".slogan"),
+        $interest = $(".hobby");
+
+
+
+
+    // sections distance from top
+    const aboutDistance = $about.offset().top,
+        instalationsDistance = $instalations.offset().top,
+        featuresDistance = $features.offset().top,
+        webdistance = $web.offset().top,
+        webElDistance = $webEl.offset().top,
+        sloganDistance = $slogan.offset().top,
+        hobbyDistance = $interest.offset().top,
+        formDistance = $form.offset().top;
+
+
     if (scrollValue > aboutDistance - windowHeight) {
-        $about.addClass("active2")
+        $about.addClass("active")
     }
     if (scrollValue > instalationsDistance - windowHeight) {
-        $instalations.addClass("active2")
+        $instalations.addClass("active")
     }
     if (scrollValue > featuresDistance - windowHeight) {
-        $features.addClass("active2")
+        $features.addClass("active")
     }
     if (scrollValue > webdistance - windowHeight) {
-        $web.addClass("active2")
+        $web.addClass("active")
     }
+    if (scrollValue > webElDistance - (windowHeight / 1.5)) {
+        $webEl.addClass("active")
+    }
+    if (scrollValue > sloganDistance - windowHeight) {
+        $slogan.addClass("active")
+    }
+    if (scrollValue > hobbyDistance - windowHeight) {
+        $interest.addClass("active")
+    }
+    if (scrollValue > formDistance - windowHeight) {
+        $form.addClass("active")
+    };
 
-    // animacja sloganu i hobby
-    // pobieramy dwa elementy pierwsze
-    const $slogan = $(".slogan");
-    const $interest = $(".hobby");
-    // odleglosc elementow op od góry
-    const sloganDistance2 = $slogan.offset().top;
-    const hobbyDistance2 = $interest.offset().top;
-
-    // instrukcja warunkowa (jesli wartosc skrola jest wieksza niz Y to pojawi sie element)
-    if (scrollValue > sloganDistance2 - windowHeight) {
-        $slogan.addClass("active2")
-    }
-    if (scrollValue > hobbyDistance2 - windowHeight) {
-        $interest.addClass("active2")
-    }
-    // czysciciel
-    // if od tego zeby wracacalo do stanu poczatkowego
+    // cleaner 
     if (scrollValue < 100) {
-        $about.removeClass("active2");
-        $instalations.removeClass("active2");
-        $features.removeClass("active2");
-        $web.removeClass("active2");
-        $slogan.removeClass("active2");
-        $about.removeClass("active2");
+        $about.removeClass("active");
+        $instalations.removeClass("active");
+        $features.removeClass("active");
+        $web.removeClass("active");
+        $webEl.removeClass('active')
+        $slogan.removeClass("active");
+        $about.removeClass("active");
+        $form.removeClass('active')
+    }
+})
+
+
+// Icons&images scroll animations
+$(document).on("scroll", function () {
+    const windowHeight = $(window).height(),
+        scrollValue = $(this).scrollTop();
+
+    // Elements variables 
+    const $webEl = $('.web');
+
+    // Elements distance from top
+    const
+        webElDistance = $webEl.offset().top;
+
+    if (scrollValue > webElDistance - (windowHeight / 1.5)) {
+        $webEl.addClass("active")
+    }
+
+    // cleaner 
+    if (scrollValue < 100) {
+        $webEl.removeClass('active')
     }
 })
 
