@@ -32,6 +32,7 @@ body {
 section {
     padding: 30px 20px 30px 20px;
     transition: 0.5s ease-in-out;
+    scroll-snap-align: center;
 }
 
 section:nth-of-type(odd) {
@@ -43,7 +44,7 @@ section:nth-of-type(odd) {
 section:nth-of-type(even) {
     background-color: var(--secondColor);
     color: var(--firstColor);
-    transform: translateX(+100vw);
+    transform: translateX(-100vw);
 }
 
 section:nth-of-type(even) h1 {
@@ -64,12 +65,24 @@ h2 {
     font-weight: 500;
 }
 
+
 h1,
 h2 {
     font-size: 18px;
     text-transform: uppercase;
     text-align: center;
     line-height: 20px;
+    margin: 0;
+    padding: 20px 0;
+}
+
+h3 {
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    line-height: 120%;
+    letter-spacing: 1.5px;
     margin: 0;
     padding: 20px 0;
 }
@@ -105,6 +118,10 @@ p {
         line-height: 32px;
     }
 
+    h3 {
+        font-size: 24px;
+    }
+
     p {
         font-size: 20px;
     }
@@ -121,6 +138,10 @@ p {
         padding: 36px 0;
         font-size: 32px;
         line-height: 34px;
+    }
+
+    h3 {
+        font-size: 28px;
     }
 }
 
@@ -572,6 +593,15 @@ header h2 {
     width: 30%;
     max-width: 320px;
     display: block;
+    transition: 0.3 ease-in-out;
+    transform: rotateY(0deg);
+    transform-origin: 100% 0;
+    opacity: 0;
+}
+
+.instalations img.active {
+    animation: rotateIcon 1s linear;
+    opacity: 1;
 }
 
 @media (orientation: landscape) {
@@ -610,6 +640,15 @@ header h2 {
     padding: 10px;
     max-width: 320px;
     display: block;
+    transition: 0.3 ease-in-out;
+    transform: rotateY(0deg);
+    transform-origin: 0 0;
+    opacity: 0;
+}
+
+.feature img.active {
+    animation: rotateIcon 1s linear;
+    opacity: 1;
 }
 
 .features-wrap {
@@ -683,6 +722,8 @@ header h2 {
     opacity: 1;
 }
 
+
+
 @keyframes rotateIcon {
     0% {
         opacity: 0;
@@ -717,6 +758,51 @@ header h2 {
 
 }
 
+.project {
+    text-decoration: none;
+    color: var(--firstColor);
+    transition: 0.3 ease-in-out;
+    transform: rotateY(0deg);
+    transform-origin: 0 0;
+    opacity: 0;
+}
+
+.project i {
+    text-align: center;
+    font-size: 38px;
+
+}
+
+.project.active {
+    animation: rotateIcon 1s linear;
+    opacity: 1;
+}
+
+
+
+@keyframes rotateIcon {
+    0% {
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotateY(45deg);
+    }
+
+    100% {
+        transform: rotateY(0);
+
+    }
+}
+
+.project-wrap {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+
+}
 
 @media (orientation: landscape) {
     .web img {
@@ -727,12 +813,26 @@ header h2 {
         grid-template-columns: repeat(3, 1fr);
 
     }
+
+    .project-wrap {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 1024px) {
 
     .web-wrap {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    .project i {
+        text-align: center;
+        font-size: 60px;
+    }
+
+    .project-wrap {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 50px;
     }
 }
 
@@ -750,21 +850,6 @@ header h2 {
     min-height: 75vh;
 }
 
-/* .slogan::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(33, 33, 33, 0.4);
-
-}
-
-.slogan * {
-    z-index: 1;
-} */
-
 .slogan-container {
     display: flex;
     flex-direction: column;
@@ -773,12 +858,6 @@ header h2 {
     background-color: rgba(33, 33, 33, 0.3);
     padding: 10%;
     min-height: 75vh;
-    /* position: relative;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0; */
-
 }
 
 .slogan h1,
@@ -846,30 +925,45 @@ header h2 {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    transition: 0.3 ease-in-out;
+    transform: rotateY(0deg);
+
+    opacity: 0;
 }
 
 .hobby .item:nth-of-type(1) {
     background-image: url(../img/narty2.jpg);
+    transform-origin: 0 0;
 }
 
 .hobby .item:nth-of-type(2) {
     background-image: url(../img/crossfit.jpg);
+    transform-origin: 100% 0;
 }
 
 .hobby .item:nth-of-type(3) {
     background-image: url(../img/run.jpg);
+    transform-origin: 0 0;
 }
 
 .hobby .item:nth-of-type(4) {
     background-image: url(../img/Liverpool.jpg);
+    transform-origin: 100% 0;
 }
 
 .hobby .item:nth-of-type(5) {
     background-image: url(../img/naples3.jpg);
+    transform-origin: 0 0;
 }
 
 .hobby .item:nth-of-type(6) {
     background-image: url(../img/SW.png);
+    transform-origin: 100% 0;
+}
+
+.item.active {
+    animation: rotateIcon 1s linear;
+    opacity: 1;
 }
 
 .item p {
@@ -882,6 +976,7 @@ header h2 {
     line-height: 25vh;
     padding: 0;
 }
+
 
 @media (min-width: 533px) {
     .hobby-wrap {

@@ -100,19 +100,51 @@ $(document).on("scroll", function () {
         scrollValue = $(this).scrollTop();
 
     // Elements variables 
-    const $webEl = $('.web');
+    const $webEl = $('.web'),
+        $projEl = $('.project'),
+        $hvacEl = $('.hvac-icon'),
+        $featureEl = $('.feature-icon'),
+        $itemEl = $('.item');
+
 
     // Elements distance from top
-    const
-        webElDistance = $webEl.offset().top;
+    const webElDistance = $webEl.offset().top,
+        projElDistance = $projEl.offset().top,
+        hvacElDistance = $hvacEl.offset().top,
+        featureElDistance = $featureEl.offset().top,
+        itemElDistance = $itemEl.offset().top;
 
     if (scrollValue > webElDistance - (windowHeight / 1.5)) {
         $webEl.addClass("active")
+    }
+    if (scrollValue > projElDistance - (windowHeight / 1.5)) {
+        $projEl.addClass("active")
+    }
+    if (scrollValue > hvacElDistance - (windowHeight / 1.5)) {
+        $hvacEl.addClass("active")
+    }
+    if (scrollValue > featureElDistance - (windowHeight / 1.5)) {
+        $featureEl.addClass("active")
+    }
+    if (scrollValue > itemElDistance - (windowHeight / 1.5)) {
+        $itemEl.addClass("active")
     }
 
     // cleaner 
     if (scrollValue < 100) {
         $webEl.removeClass('active')
+    }
+    if (scrollValue < 100) {
+        $projEl.removeClass('active')
+    }
+    if (scrollValue < 100) {
+        $hvacEl.removeClass('active')
+    }
+    if (scrollValue < 100) {
+        $featureEl.removeClass('active')
+    }
+    if (scrollValue < 100) {
+        $itemEl.removeClass('active')
     }
 })
 
